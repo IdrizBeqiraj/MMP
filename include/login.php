@@ -21,7 +21,7 @@
                         
                             $sql = "SELECT * FROM users WHERE email = :email";
                             $stmt = $pdo->prepare($sql);
-                            $stmt->bindParam(':email', $email);
+                            $stmt->bindParam('s', $email);
                             $stmt->execute();
                             $user = $stmt->fetch(PDO::FETCH_ASSOC);
                         
@@ -30,7 +30,7 @@
                                 $_SESSION['role'] = $user['role'];
                                 echo "<div class='alert alert-success'>Login successful! <a href='index.php'>Go Home</a></div>";
                             } else {
-                                echo "<div class='alert alert-danger'>Invalid email or password</div>";
+                                 echo "<div class='alert alert-danger'>Invalid email or password</div>";
                             }
                         }
                         
